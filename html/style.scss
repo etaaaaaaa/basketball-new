@@ -1,0 +1,486 @@
+* {margin: 0; padding: 0}
+@font-face {
+  font-family: 'OS Bold';
+  src: url(https://netology-code.github.io/html-2-diploma/sources/fonts/OpenSans-Bold.woff);
+  font-weight: 700;
+  font-style: normal;
+}
+@font-face {
+  font-family: 'OS Regular';
+  src: url(https://netology-code.github.io/html-2-diploma/sources/fonts/OpenSans-Regular.woff);
+  /* font-weight: 400; */
+  font-weight: 400;
+  font-style: normal;
+}
+
+@mixin rollBefore($image) {
+  content: '';
+  background-image: $image;
+  background-repeat: no-repeat;
+  background-position: center 0;
+
+  position: absolute;
+  width: 320px;
+  height: 280px;
+  top: 10px;
+}
+
+$OSbold : OS Bold, sans-serif, serif, Arial;
+$OSregular : OS Regular, sans-serif, serif, Arial;
+$BGcolor : #151032;
+$PseudoElColor : #0a0a26;
+$DownloadColor : #5e42b0;
+$BigWordsColor: #e7e7e7;
+
+
+body {
+  margin: 0;
+  font-family: $OSbold;
+  font-size: 15px;
+  text-transform: uppercase;
+  width: auto;
+  line-height: 1.2;
+}
+
+a {
+  text-decoration: none;
+  color: #ffffff;
+}
+
+header {
+  position: relative;
+
+  background-image: url('../images/football_767.jpg');
+  background-repeat: no-repeat;
+  background-position: center center;
+  background-size: cover;
+  background-color: $BGcolor;
+  &::after {
+    content: "";
+    background-color: $PseudoElColor;
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    opacity: 0.9;
+  }
+}
+
+.header_wrapper {
+  padding: 0 16px;
+}
+.logo {
+  position: relative;
+  z-index: 2;
+}
+.svg_logo_text {
+  fill: #ffffff;
+  display: block;
+  width: 41.875%;
+  margin-left: auto;
+  margin-right: auto;
+  padding-top: 10%;
+}
+.header_text {
+  font-size: 186.7%;
+  color: #ffffff;
+  padding-top: 136px;
+  position: relative;
+  z-index: 2;
+
+  span {
+    display: inline-block;
+  }
+}
+
+.h_phrase_1 {
+  padding-left: 6.25%;
+}
+.h_phrase_2 {
+  padding-left: 20%;
+  padding-top: 6.25%;
+}
+
+.download {
+  margin-top: 88px;
+  padding-bottom: 72px;
+
+  position: relative;
+  z-index: 2;
+}
+.download_field {
+  height: 36px;
+  width: 278px;
+  background-color: $DownloadColor;
+  border: 1px $DownloadColor solid;
+  border-radius: 20px;
+  margin-left: auto;
+  margin-right: auto;
+
+  display: flex;
+  align-items: center;
+
+  &:nth-child(n+2) {
+    margin-top: 12px;
+  }
+}
+.download_link {
+  width: inherit;
+  display: flex;
+}
+
+//useless coz none svg
+.icon {
+  fill: #ffffff;
+  width: 22px;
+  padding-left: 100px;
+}
+.icon_android {
+  width: 25px;
+}
+.icon_apple {
+  width: 25px;
+}
+
+
+.download_text {
+  font-size: 0.534em;
+  color: #ffffff;
+  padding-left: 7px;
+
+  display: flex;
+  flex-direction: column;
+  height: 20px;
+  padding-top: 73px;
+}
+.download_action {
+  font-family: $OSregular;
+}
+
+h2 {
+  font-size: 3.4em;
+  color: $BigWordsColor;
+  padding: 5px 0 0 20px;
+}
+
+.news_roll {
+  padding-top: 235px;
+  list-style-position: inside;
+  counter-reset: item;
+  list-style-type: none;
+
+  position: relative;
+
+
+  li {
+    display: block;
+    box-sizing: border-box;
+    padding: 57px 20px 50px;
+    line-height: 18px;
+
+    &:nth-child(3n+1) {
+      background-color: #fafafa;
+      padding-top: 73px;
+    }
+    &:nth-child(3n-1) {
+      background-color: #f5f4f9;
+    }
+    &:nth-child(3n) {
+      color: #ffffff;
+      background-color: $DownloadColor;
+    }
+
+    &::before {
+      content: counter(item, decimal-leading-zero) '';
+      counter-increment: item;
+
+      vertical-align: 25%;
+      display: inline-block;
+      border-bottom: 3px solid $DownloadColor;
+      margin: auto;
+    }
+    &:nth-child(3n)::before{
+      color: #000000;
+      border-bottom: 3px solid #ffffff;
+    }
+
+    span {
+      font-size: 1.6em;
+      color: #c1c1c1;
+      padding-left: 5px;
+    }
+
+    p {
+      font-family: $OSregular;
+      text-transform: none;
+      padding-top: 28px;
+    }
+  }
+}
+
+.news_roll_athletes {
+  &::before {
+    @include rollBefore(url('../images/footballer_192.png'));
+  }
+}
+
+.news_roll_players {
+  &::before{
+    @include rollBefore(url('../images/basketballer_302.png'));
+  }
+}
+
+
+
+.action_list {
+  list-style-position: inside;
+  counter-reset: item;
+  list-style-type: none;
+}
+div.action_img_container {
+  position: relative;
+
+  &::after {
+    content: '';
+    display: block;
+
+    width: 70px;
+    height: 70px;
+    background-color: #5e42b0;
+
+    position: absolute;
+    z-index: 1;
+    left: 20px;
+    bottom: -8px;
+  }
+  &::before {
+    content: counter(item, decimal-leading-zero) '';
+    counter-increment: item;
+    text-align: center;
+    color: #ffffff;
+
+    display: inline-block;
+    border-bottom: 3px solid #8f7bc8;
+    margin: auto;
+
+    position: absolute;
+    z-index: 2;
+    left: 47px;
+    bottom: 20px;
+  }
+
+  &img {
+    width: 100%;
+  }
+}
+
+.action_header {
+  color: $BigWordsColor;
+  font-size: 1.6em;
+  padding: 0; //I know there is .headline somewhere, just cant find it
+}
+.action_txt_container {
+  display: block;
+  box-sizing: border-box;
+  padding: 34px 27px 77px 20px;
+}
+.action_txt {
+  padding-top: 20px;
+  font-family: $OSregular;
+  text-transform: none;
+}
+
+
+
+
+
+
+
+//@media(min-width: 1920px)  {
+//  .header {
+//    background-image: url('/football_1920.jpg');
+//  }
+//  .svg_logo_text {
+//    width: 192px;
+//    padding-top: 38px;
+//  }
+//  .header_text {
+//    font-size: 90px;
+//    padding-top: 296px;
+//  }
+//  .h_phrase_1 {
+//    padding-left: 10%;
+//  }
+//  .h_phrase_2 {
+//    padding-top: 0;
+//    padding-left: 33.5%
+//  }
+//  .download {
+//    margin-top: 227px;
+//    padding-bottom: 113px;
+//  }
+//  .download_field:nth-child(n+2) {
+//    margin-left: 50px;
+//  }
+//  .icon {
+//    width: 60px;
+//  }
+//  .icon_apple {
+//    padding-left: 40px;
+//  }
+//  .icon_android {
+//    padding-left: 55px;
+//  }
+//  .download_text {
+//    font-size: 14px;
+//    padding-left: 24px;
+//    padding-top: 13px;
+//  }
+//
+//  .headline_athletes {
+//    padding: 117px 0 36px 1020px;
+//  }
+//  .news_roll_athletes {
+//    padding-top: 0;
+//  }
+//  .news_roll_athletes::before {
+//    background-image: url('/footballer_566.png');
+//
+//    width: 600px;
+//    height: 950px;
+//    top: -210px;
+//    left: 393px;
+//  }
+//  .news_piece_headline {
+//    font-size: 36px;
+//  }
+//  .news_piece_description_athletes {
+//    font-size: 20px;
+//    padding-left: 53.5%;
+//    padding-top: 25px;
+//    width: 37.34%
+//  }
+//  .news_roll_item_athletes {
+//    padding-bottom: 56px;
+//  }
+//  .news_roll_item_athletes::before {
+//    margin-left: 53.3%;
+//    vertical-align: 60%;
+//
+//    height: 24px;
+//    width: 22px;
+//    font-size: 20px;
+//  }
+//
+//  .headline_players {
+//    padding-top: 110px;
+//    padding-left: 9%
+//  }
+//  .news_roll_players {
+//    padding-top: 0;
+//  }
+//  .news_roll_players::before {
+//    background-image: url('/basketballer_991.png');
+//
+//    width: 1000px;
+//    height: 950px;
+//    top: -180px;
+//    left: 810px;
+//  }
+//  .news_roll_item_players {
+//    padding-bottom: 56px;
+//  }
+//  .news_roll_item_players::before {
+//    vertical-align: 40%;
+//  }
+//  .news_piece_description_players {
+//    font-size: 20px;
+//    padding-left: 8.9%;
+//    padding-top: 25px;
+//    width: 38%;
+//  }
+//  .news_roll_item_players {
+//    padding-bottom: 56px;
+//  }
+//  .news_roll_item_players::before {
+//    margin-left: 8.9%;
+//    vertical-align: 60%;
+//
+//    height: 24px;
+//    width: 22px;
+//    font-size: 20px;
+//  }
+//
+//  .action {
+//    display: flex;
+//  }
+//  .action:nth-child(even) .action_txt_container {
+//    order: 1;
+//  }
+//  .action:nth-child(even) .action_img_container {
+//    order: 2;
+//  }
+//  .action_img_container {
+//    width: 50%;
+//  }
+//  div.action_img_container::after {
+//    width: 170px;
+//    height: 155px;
+//
+//    left: 91.15%;
+//    top: 180px;
+//  }
+//  div.action_img_container::before {
+//    font-size: 24px;
+//    left: 99%;
+//    top: 245px;
+//
+//    margin: 0;
+//    height: 33px;
+//  }
+//  .action:nth-child(even) .action_img_container::after {
+//    left: -8.85%;
+//  }
+//  .action:nth-child(even) .action_img_container::before {
+//    left: -1%;
+//  }
+//  .action_txt_container {
+//    padding-top: 205px;
+//    padding-left: 100px;
+//    width: 50%;
+//  }
+//  .action_txt {
+//    font-size: 24px;
+//    width: 620px;
+//    padding-left: 25px;
+//    padding-top: 100px;
+//  }
+//
+//  .logo_n_txt {
+//    display: flex;
+//    align-items: center;
+//    justify-content: center;
+//
+//    padding-top: 230px
+//  }
+//  .f_logo_svg {
+//    width: 130px;
+//    padding: 0;
+//  }
+//  .f_phrase_1 {
+//    font-size: 80px;
+//    padding-left: 35px;
+//  }
+//  .f_phrase_2 {
+//    font-family: OSregular;
+//    font-size: 34px;
+//    padding: 0;
+//  }
+//  .f_logo_txt {
+//    padding-top: 147px;
+//    padding-bottom: 50px;
+//  }
+//
+//
+//}

@@ -1,0 +1,102 @@
+mixin downloads(action, service)
+     span.download_action= action
+     span.download_service= service
+
+mixin download_field(link, action, service)
+    a.download_link= link
+        svg.icon.icon_apple
+        .download_text
+            +downloads(action, service)
+
+
+doctype html
+
+html(lang='en')
+head
+    link(rel="stylesheet" href="../html/style.css")
+body
+
+    header.header
+
+         .header_wrapper
+             .logo
+                 .svg_logo_text
+                     include ../svg/surface_logo_text.svg
+             h1.header_text
+                 span.h_phrase_1 be recruited
+                 span.h_phrase_2 play college sports
+             .download
+                 .download_apple.download_field
+                     +download_field('','download on the ','app stone')
+
+                 .download_android.download_field
+                     +download_field('', 'get on the ', 'google play')
+
+    main.main
+
+         article.main_content
+             section.athletes
+                 h2.headline.headline_athletes athletes
+                 ol.news_roll.news_roll_athletes
+                     li.news_roll_item_athletes
+                          span.news_piece.healine connection
+                          p.news_piece_description.news_piece_description_athletes Connect with coaches directly, you can ping coaches to view profile.
+                     li.news_roll_item_athletes
+                         span.news_piece.healine collaboration
+                         p.news_piece_description.news_piece_description_athletes Work with other student athletes to increase viability. When you share and like other players videos it will increase your visability as a player. This is the team work aspect to Surface 1.
+                     li.news_roll_item_athletes
+                         span.news_piece.healine growth
+                         p.news_piece_description.news_piece_description_athletes Resources and tools for you to get better as a student Athlete. Access to training classes, tutor sessions, etc.
+             section.players
+                 h2.headline.headline_players players
+                 ol.news_roll.news_roll_players
+                     li.news_roll_item_players
+                         span.news_piece.healine connection
+                         p.news_piece_description.news_piece_description_players Connect with talented athlete directly, you can watch their skills through video showreels directly from Surface 1.
+                     li.news_roll_item_players
+                         span.news_piece.healine collaboration
+                         p.news_piece_description.news_piece_description_players Work with recruiter to increase your chances of finding talented athlete.
+                     li.news_roll_item_athletes
+                         span.news_piece.healine growth
+                         p.news_piece_description.news_piece_description_athletes Save your time, recruit proper athletes fro your team.
+
+         article.action_content
+             ol.action_list
+                 li.action.be_active_action
+                    .action_img_container
+                        picture.be_active_img.action_img
+                            source(media='(max-width:767px)', srcset='../images/be-active_640.jpg')
+                            source(media='(min-width:768px) and (max-width:1919px', srcset='../images/be-active_960.jpg')
+                            source(media='(min-width:1920px)', srcset='../images/be-active_1024.jpg')
+                            img.be_active_img.action_img(src='../images/be-active.jpg')
+                    .action_txt_container
+                        h2.be_active_header.action_header.headline be active
+                        p.action_txt.be_ative_txt Post videos with your skills, like and follow others to be more popular.
+
+                 li.action.find_contact_action
+                     .action_img_container
+                         picture.find_contact_img.action_img
+                             source(media='(max-width:767px)', srcset='../images/find-contact_640.jpg')
+                             source(media='(min-width:768px) and (max-width:1919px', srcset='../images/find-contact_960.jpg')
+                             source(media='(min-width:1920px)', srcset='../images/find-contact_1920.jpg')
+                             img.find_contact_img.action_img(src='../images/find-contact.jpg')
+                     .action_txt_container
+                         h2.be_active_header.find_contact_header.headline be active
+                         p.action_txt.find_contact_txt Post videos with your skills, like and follow others to be more popular.
+
+
+
+                 li.action.work_it_action
+                     .action_img_container
+                         picture.work_it_img.action_img
+                             source(media='(max-width:767px)', srcset='../images/find-contact_640.jpg')
+                             source(media='(min-width:768px) and (max-width:1919px', srcset='../images/find-contact_960.jpg')
+                             source(media='(min-width:1920px)', srcset='../images/find-contact_1920.jpg')
+                             img.work_it_img.action_img(src='../images/find-contact.jpg')
+                     .action_txt_container
+                         h2.work_it_header.action_header.headline be active
+                         p.action_txt.work_it_txt Post videos with your skills, like and follow others to be more popular.
+
+
+
+    footer.footer foot
